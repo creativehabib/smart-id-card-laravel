@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- PDF Page Defaults ---- */
+@page { size: Legal landscape; margin: 10mm; }
+html, body { margin:0; padding:0; }
+body { font-family: DejaVu Sans, Arial, Helvetica, sans-serif; font-size: 9pt; background:#fff; }
+
+/* ---- Custom mm utilities (DomPDF-safe) ---- */
+@layer utilities {
+    .w-55mm { width:55mm }
+    .h-87mm { height:87mm }
+    .w-115mm { width:115mm }
+    .w-24mm { width:24mm }
+    .w-18mm { width:18mm }
+    .w-15mm { width:15mm }
+    .w-10mm { width:10mm }
+    .w-5mm  { width:5mm }
+
+    .h-16mm { height:16mm }
+    .h-14mm { height:14mm }
+    .h-15mm { height:15mm }
+    .h-17mm { height:17mm }
+    .h-30mm { height:30mm }
+    .h-38mm { height:38mm }
+
+    .gap-5mm { gap:5mm }
+    .px-3mm { padding-left:3mm; padding-right:3mm }
+    .p-3mm { padding:3mm }
+    .pb-17mm { padding-bottom:17mm }
+    .pb-19mm { padding-bottom:19mm }
+    .bottom-2mm { bottom:2mm }
+
+    .border-0_3mm { border-width:0.3mm }
+    .rounded-3mm { border-radius:3mm }
+}
+
+/* ---- Components ---- */
+@layer components {
+    /* Card shell */
+    .card {
+        @apply w-55mm h-87mm bg-white border border-0_3mm rounded-3mm overflow-hidden relative box-border;
+        page-break-inside: avoid;
+    }
+
+    /* Inner table to lock rows/heights for DomPDF */
+    .cardtbl {
+        @apply table table-fixed;
+        width:55mm; height:87mm; border-collapse:collapse;
+    }
+
+    .toprow { @apply h-16mm border-b border-0_3mm; }
+    .photocell { background:#e9f2ff; }
+
+    /* Typography */
+    .name { @apply text-center font-bold text-[10pt] text-[#111] mt-[1mm]; }
+    .role { @apply text-center text-[8pt] text-[#333] mt-[0.5mm]; }
+    .dept { @apply text-center text-[7.5pt] text-[#333]; }
+
+    .row  { @apply text-[#111]; font-size:7.6pt; line-height:1.2; margin:0.6mm 0; }
+    .label{ @apply text-[#333]; display:inline-block; width:25mm; }
+    .value{ @apply font-semibold text-[#111]; display:inline-block; width:calc(100% - 25mm); white-space:normal; word-wrap:break-word; }
+}
+
+/* ---- Bottom (front): table layout for perfect alignment ---- */
+@layer components {
+    .bottom {
+        position:absolute; left:3mm; right:3mm;
+        @apply bottom-2mm h-15mm table table-fixed;
+    }
+    .sig { @apply table-cell align-middle text-center; width:24mm; line-height:1.1; color:#333; font-size:6.5pt; }
+    .sig-img { height:8mm; display:flex; align-items:center; justify-content:center; }
+    .sig-img img { max-height:8mm; max-width:22mm; display:block; object-fit:contain; }
+    .cap { margin-top:0.8mm; line-height:1.05; font-size:6.5pt; color:#333; }
+
+    .qrbox { @apply table-cell align-middle text-center; width:18mm; }
+    .qrframe { @apply w-15mm h-15mm bg-white; border:0.2mm solid #c9c9c9; margin:0 auto; }
+    .qrframe svg, .qrframe img { width:15mm; height:15mm; display:block; margin:0 auto; }
+}
+
+/* ---- Back footer ---- */
+@layer components {
+    .back-body { @apply px-3mm; padding-top:3mm; padding-bottom:0; } /* footer নিচে card-এ pb-19mm থাকবে */
+    .back-footer {
+        position:absolute; left:0; right:0;
+        @apply bottom-2mm h-14mm bg-white;
+        border-top:0.3mm solid #e5e5e5; padding:0 4mm;
+        display:flex; align-items:center; justify-content:center;
+    }
+    .back-note { font-size:7.4pt; color:#222; text-align:center; line-height:1.15; }
+}
+
+/* ---- Helpers for outer layout (page grid, logos, photos) ---- */
+.sheet { border-collapse:separate; border-spacing:5mm 5mm; table-layout:fixed; margin:0 auto; }
+.gap-spacer { display:inline-block; width:5mm; height:87mm; }
+
+.logo-img { width:10mm; height:10mm; display:block; }
+.photo-border { border:0.2mm solid #c9c9c9; background:#fff; }
