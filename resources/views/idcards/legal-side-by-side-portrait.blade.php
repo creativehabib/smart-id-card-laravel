@@ -74,10 +74,12 @@
               @foreach($row as $e)
                 @php
                       $bg = $e->photo_bg ?: '#e9f2ff';
-                      $logoSrc  = public_path('img/nu_logo.png');
-                      $photoSrc = $e->photo_path ? public_path('storage/'.$e->photo_path) : public_path('img/photo_placeholder.jpg');
-                      $qrPayload = json_encode($e->qr_payload ?? ['id'=>$e->id]);
-                      $qrSvg = QrCode::format('svg')->size(180)->margin(0)->generate($qrPayload);
+                      $logoSrc       = public_path('img/nu_logo.png');
+                      $photoSrc      = $e->photo_path ? public_path('storage/'.$e->photo_path) : public_path('img/photo_placeholder.jpg');
+                      $cardSigSrc    = public_path('img/c-holder-sig.png');
+                      $regiSigSrc    = public_path('img/regi-sig.png');
+                      $qrPayload     = json_encode($e->qr_payload ?? ['id'=>$e->id]);
+                      $qrSvg         = QrCode::format('svg')->size(180)->margin(0)->generate($qrPayload);
                 @endphp
                 <td class="pair-cell">
                   <div class="pair-ib">
@@ -94,9 +96,9 @@
                       <div class="role">{{ $e->designation }}</div>
                       <div class="dept">{{ $e->department }}</div>
                       <div class="bottom">
-                        <div class="sig"><div style="height:10mm;"></div><div>Card Holder</div></div>
+                        <div class="sig"><div style="height:10mm;"><img src="{{ $cardSigSrc }}" alt="" style="height:10mm;"></div><div>Card Holder</div></div>
                           <div class="qr"><span class="qr-pdf qr-svg">{!! $qrSvg !!}</span></div>
-                        <div class="sig"><div style="height:10mm;"></div><div>Registrar</div></div>
+                        <div class="sig"><div style="height:10mm;"><img src="{{ $regiSigSrc }}" alt="" style="height:10mm;"></div><div>Registrar</div></div>
                       </div>
                       <div class="crop"><div class="cm h tl"></div><div class="cm v tl"></div><div class="cm h tr"></div><div class="cm v tr"></div><div class="cm h bl"></div><div class="cm v bl"></div><div class="cm h br"></div><div class="cm v br"></div></div>
                     </div>
@@ -130,9 +132,11 @@
           @foreach($employees as $e)
             @php
               $bg = $e->photo_bg ?: '#e9f2ff';
-              $logoSrc  = asset('img/nu_logo.png');
-              $photoSrc = $e->photo_path ? asset('storage/'.$e->photo_path) : asset('img/photo_placeholder.jpg');
-              $qrPayload = json_encode($e->qr_payload ?? ['id'=>$e->id]);
+              $logoSrc     = asset('img/nu_logo.png');
+              $photoSrc    = $e->photo_path ? asset('storage/'.$e->photo_path) : asset('img/photo_placeholder.jpg');
+              $cardSigSrc  = asset('img/c-holder-sig.png');
+              $regiSigSrc  = asset('img/regi-sig.png');
+              $qrPayload   = json_encode($e->qr_payload ?? ['id'=>$e->id]);
             @endphp
             <div class="pair-flex">
               <!-- FRONT -->
@@ -148,9 +152,9 @@
                 <div class="role">{{ $e->designation }}</div>
                 <div class="dept">{{ $e->department }}</div>
                 <div class="bottom">
-                  <div class="sig"><div style="height:10mm;"></div><div>Card Holder</div></div>
+                  <div class="sig"><div style="height:10mm;"><img src="{{ $cardSigSrc }}" alt="" style="height:10mm;"></div><div>Card Holder</div></div>
                   <div class="qr">{!! QrCode::size(70)->margin(0)->generate($qrPayload) !!}</div>
-                  <div class="sig"><div style="height:10mm;"></div><div>Registrar</div></div>
+                  <div class="sig"><div style="height:10mm;"><img src="{{ $regiSigSrc }}" alt="" style="height:10mm;"></div><div>Registrar</div></div>
                 </div>
                 <div class="crop"><div class="cm h tl"></div><div class="cm v tl"></div><div class="cm h tr"></div><div class="cm v tr"></div><div class="cm h bl"></div><div class="cm v bl"></div><div class="cm h br"></div><div class="cm v br"></div></div>
               </div>
