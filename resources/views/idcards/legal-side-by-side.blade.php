@@ -46,13 +46,13 @@
         .name{ text-align:center; font-weight:700; font-size:10pt; margin-top:1mm; color:#111; }
         .role{ text-align:center; font-size:8pt; margin-top:0.5mm; color:#333; }
         .dept{ text-align:center; font-size:7.5pt; color:#333; }
-        .bottom {position: absolute;left: 0;right: 0;bottom: 1.5mm;display: flex;justify-content: space-between;align-items: center;padding: 0 3mm 10px;}
+        .bottom {position: absolute;left: 0;right: 0;bottom: 1.5mm;display: flex;justify-content: space-between;align-items: center;padding: 0 3mm;}
         .sig{ font-size:6.5pt; text-align:center; width:24mm; color:#333; }
         .qr{ width:15mm; height:15mm; border:0.2mm solid #c9c9c9; display:flex; align-items:center; justify-content:center; background:#fff; }
         .qr-svg svg { width:15mm; height:15mm; display:block; }
 
         .back-body{ padding:3mm 4mm 22mm; }
-        .back-bottom {position: absolute;left: 0;right: 0;bottom: 1.5mm;min-height: 10mm;border-top: 0.3mm solid #e5e5e5;display: flex;align-items: center;justify-content: center;background: #fff;padding: 2mm 4mm 10px;}
+        .back-bottom {position: absolute;left: 0;right: 0;bottom: 1.5mm;min-height: 16mm;border-top: 0.3mm solid #e5e5e5;display: flex;align-items: center;justify-content: center;background: #fff;padding: 2mm 4mm;}
         .back-note{ font-size:7.6pt; color:#222; text-align:center; }
 
         .row {display: flex;font-size: 7.8pt;margin: 0.6mm 0;color: #111;line-height: 14px;}
