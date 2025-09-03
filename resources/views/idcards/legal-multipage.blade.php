@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   @page { size: Legal landscape; margin: 10mm; }
   body { font-family: DejaVu Sans, Arial, Helvetica, sans-serif; font-size: 9pt; background:#fff; }
