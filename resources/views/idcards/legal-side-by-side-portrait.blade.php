@@ -44,7 +44,7 @@
   .role{ text-align:center; font-size:8pt; margin-top:0.5mm; color:#333; }
   .dept{ text-align:center; font-size:7.5pt; color:#333; }
   .bottom {position: absolute;left: 0;right: 0;bottom: 1.5mm;display: flex;justify-content: space-between;align-items: center;padding: 0 3mm;}
-  .sig{ font-size:6.5pt; text-align:center; width:24mm; color:#333; }
+  .sig{ font-size:6.5pt; text-align:center; width:15mm; color:#333; }
   .qr{ width:15mm; height:15mm; border:0.2mm solid #c9c9c9; display:flex; align-items:center; justify-content:center; background:#fff; }
   .qr-svg svg { width:15mm; height:15mm; display:block; }
 
@@ -97,9 +97,9 @@
                       <div class="role">{{ $e->designation }}</div>
                       <div class="dept">{{ $e->department }}</div>
                       <div class="bottom">
-                        <div class="sig"><div style="height:10mm;"><img src="{{ $cardSigSrc }}" alt="" style="height:10mm;"></div><div>Card Holder</div></div>
+                        <div class="sig"><div style="height:10mm;"><img src="{{ $cardSigSrc }}" alt="" style="width:100%; height:auto;"></div><div>Card Holder</div></div>
                           <div class="qr"><span class="qr-pdf qr-svg">{!! $qrSvg !!}</span></div>
-                        <div class="sig"><div style="height:10mm;"><img src="{{ $regiSigSrc }}" alt="" style="height:10mm;"></div><div>Registrar</div></div>
+                        <div class="sig"><div style="height:10mm;"><img src="{{ $regiSigSrc }}" alt="" style="width:100%; height:auto;"></div><div>Registrar</div></div>
                       </div>
                       <div class="crop"><div class="cm h tl"></div><div class="cm v tl"></div><div class="cm h tr"></div><div class="cm v tr"></div><div class="cm h bl"></div><div class="cm v bl"></div><div class="cm h br"></div><div class="cm v br"></div></div>
                     </div>
@@ -153,9 +153,9 @@
                 <div class="role">{{ $e->designation }}</div>
                 <div class="dept">{{ $e->department }}</div>
                 <div class="bottom">
-                  <div class="sig"><div style="height:10mm;"><img src="{{ $cardSigSrc }}" alt="" style="height:10mm;"></div><div>Card Holder</div></div>
+                  <div class="sig"><div style="height:10mm;"><img src="{{ $cardSigSrc }}" alt="" style="width:100%; height:auto;"></div><div>Card Holder</div></div>
                   <div class="qr">{!! QrCode::size(70)->margin(0)->generate($qrPayload) !!}</div>
-                  <div class="sig"><div style="height:10mm;"><img src="{{ $regiSigSrc }}" alt="" style="height:10mm;"></div><div>Registrar</div></div>
+                  <div class="sig"><div style="height:10mm;"><img src="{{ $regiSigSrc }}" alt="" style="width:100%; height:auto;"></div><div>Registrar</div></div>
                 </div>
                 <div class="crop"><div class="cm h tl"></div><div class="cm v tl"></div><div class="cm h tr"></div><div class="cm v tr"></div><div class="cm h bl"></div><div class="cm v bl"></div><div class="cm h br"></div><div class="cm v br"></div></div>
               </div>
