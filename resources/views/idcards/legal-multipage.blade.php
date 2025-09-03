@@ -37,7 +37,7 @@
 
   /* FRONT bottom bar */
   .bottom { position:absolute; left:0; right:0; bottom:1.5mm; display:flex; justify-content:space-between; align-items:center; padding:0 3mm; }
-  .sig { font-size:6.5pt; text-align:center; width:24mm; color:#333; }
+  .sig { font-size:6.5pt; text-align:center; width:15mm; color:#333; }
   .qr  { width:18mm; height:18mm; border:0.2mm solid #c9c9c9; display:flex; align-items:center; justify-content:center; background:#fff; }
 
   /* ---------- BACK: আলাদা bottom bar যুক্ত ---------- */
@@ -103,9 +103,9 @@
           <div class="dept">{{ $e->department }}</div>
 
           <div class="bottom">
-            <div class="sig"><div style="height:10mm;"><img src="{{ asset('img/c-holder-sig.png') }}" alt="" style="height:10mm;"></div><div>Card Holder</div></div>
+            <div class="sig"><div style="height:10mm;"><img src="{{ asset('img/c-holder-sig.png') }}" alt="" style="width:100%; height:auto;"></div><div>Card Holder</div></div>
             <div class="qr">{!! QrCode::size(70)->margin(0)->generate(json_encode($e->qr_payload ?? ['id'=>$e->id])) !!}</div>
-            <div class="sig"><div style="height:10mm;"><img src="{{ asset('img/regi-sig.png') }}" alt="" style="height:10mm;"></div><div>Registrar</div></div>
+            <div class="sig"><div style="height:10mm;"><img src="{{ asset('img/regi-sig.png') }}" alt="" style="width:100%; height:auto;"></div><div>Registrar</div></div>
           </div>
 
           <div class="crop">
