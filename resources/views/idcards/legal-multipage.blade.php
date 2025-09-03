@@ -102,9 +102,9 @@
           <div class="dept">{{ $e->department }}</div>
 
           <div class="bottom">
-            <div class="sig"><div style="height:10mm;"></div><div>Card Holder</div></div>
+            <div class="sig"><div style="height:10mm;"><img src="{{ asset('img/c-holder-sig.png') }}" alt="" style="height:10mm;"></div><div>Card Holder</div></div>
             <div class="qr">{!! QrCode::size(70)->margin(0)->generate(json_encode($e->qr_payload ?? ['id'=>$e->id])) !!}</div>
-            <div class="sig"><div style="height:10mm;"></div><div>Registrar</div></div>
+            <div class="sig"><div style="height:10mm;"><img src="{{ asset('img/regi-sig.png') }}" alt="" style="height:10mm;"></div><div>Registrar</div></div>
           </div>
 
           <div class="crop">
