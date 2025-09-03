@@ -81,6 +81,7 @@
                                     $bg = $e->photo_bg ?: '#e9f2ff';
                                     $logoSrc  = public_path('img/nu_logo.png');
                                     $photoSrc = $e->photo_path ? public_path('storage/'.$e->photo_path) : public_path('img/photo_placeholder.jpg');
+                                    $regiSig = $e->photo_path ? public_path('storage/'.$e->photo_path) : public_path('img/regi-sig.png');
                                     $qrPayload = json_encode($e->qr_payload ?? ['id'=>$e->id]);
                                     $qrSvg = QrCode::format('svg')->size(180)->margin(0)->generate($qrPayload);
                                 @endphp
@@ -102,7 +103,10 @@
                                             <div class="role">{{ $e->designation }}</div>
                                             <div class="dept">{{ $e->department }}</div>
                                             <div class="bottom">
-                                                <div class="sig"><div style="height:10mm;"></div><div>Card Holder</div></div>
+                                                <div class="sig"><div style="height:10mm;">
+                                                        <img src="{{ $regiSig }}" alt="">
+                                                    </div><div>Card Holder</div>
+                                                </div>
                                                 <div class="qr"><span class="qr-pdf qr-svg">{!! $qrSvg !!}</span></div>
                                                 <div class="sig"><div style="height:10mm;"></div><div>Registrar</div></div>
                                             </div>
@@ -151,6 +155,7 @@
                             $bg = $e->photo_bg ?: '#e9f2ff';
                             $logoSrc  = asset('img/nu_logo.png');
                             $photoSrc = $e->photo_path ? asset('storage/'.$e->photo_path) : asset('img/photo_placeholder.jpg');
+                            $regiSig = $e->photo_path ? asset('storage/'.$e->photo_path) : asset('img/regi-sig.png');
                             $qrPayload = json_encode($e->qr_payload ?? ['id'=>$e->id]);
                         @endphp
                         <div class="pair-flex">
@@ -170,7 +175,11 @@
                                 <div class="role">{{ $e->designation }}</div>
                                 <div class="dept">{{ $e->department }}</div>
                                 <div class="bottom">
-                                    <div class="sig"><div style="height:10mm;"></div><div>Card Holder</div></div>
+                                    <div class="sig">
+                                        <div style="height:10mm;">
+                                            <img src="{{ $regiSig }}" alt="">
+                                        </div>
+                                        <div>Card Holder</div></div>
                                     <div class="qr">{!! QrCode::size(70)->margin(0)->generate($qrPayload) !!}</div>
                                     <div class="sig"><div style="height:10mm;"></div><div>Registrar</div></div>
                                 </div>
